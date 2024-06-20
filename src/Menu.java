@@ -19,13 +19,14 @@ public class Menu {
             System.out.println("            6 - Remover do Carrinho                  ");
             System.out.println("            7 - Listar Carrinho                      ");
             System.out.println("            8 - Calcular Total do Carrinho           ");
-            System.out.println("            9 - Sair                                 ");
+            System.out.println("            9 - Finalizar compra                     ");
+            System.out.println("            10 - Sair                                ");
             System.out.println("                                                     ");
             System.out.println("Entre com a opção desejada:                          ");
 
             op = scanner.nextInt();
 
-            if (op == 9) {
+            if (op == 10) {
                 System.out.println("\nObrigade por cooperar com nosso planeta!");
                 scanner.close();
                 System.exit(0);
@@ -62,6 +63,10 @@ public class Menu {
                     break;
                 case 8:
                     System.out.println("Calcular Total do Carrinho\n\n");
+
+                    break;
+                case 9:
+                    System.out.println("Finalizar compra\n\n");
 
                     break;
                 default:
