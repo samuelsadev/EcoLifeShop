@@ -1,5 +1,7 @@
 import controller.EcoController;
+import util.Cores;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
@@ -10,7 +12,11 @@ public class Menu {
         int op;
 
         while (true){
-            System.out.println("\n            Bem vinde ao EcoLifeShop!                ");
+
+            System.out.println(Cores.TEXT_GREEN + Cores.ANSI_BLACK_BACKGROUND
+                    + "*****************************************************");
+            System.out.println("                                                     ");
+            System.out.println("            Bem vinde ao EcoLifeShop!                ");
             System.out.println("                                                     ");
             System.out.println("                      Menu                           ");
             System.out.println("                                                     ");
@@ -26,6 +32,7 @@ public class Menu {
             System.out.println("            10 - Sair                                ");
             System.out.println("                                                     ");
             System.out.println("Entre com a opção desejada:                          ");
+            System.out.println("                                                     " + Cores.TEXT_RESET);
 
             op = scanner.nextInt();
 
@@ -47,6 +54,7 @@ public class Menu {
                     double preco1 = scanner.nextDouble();
                     controller.adicionarProduto(id1, nome1, preco1);
                     System.out.println("\nProduto adicionado com sucesso.");
+                    keyPress();
                     break;
                 case 2:
                     System.out.println("\nAtualizar Produto\n\n");
@@ -59,6 +67,7 @@ public class Menu {
                     double preco2 = scanner.nextDouble();
                     controller.atualizarProduto(id2, nome2, preco2);
                     System.out.println("Produto atualizado com sucesso.");
+                    keyPress();
                     break;
                 case 3:
                     System.out.println("Deletar Produto\n\n");
@@ -67,11 +76,13 @@ public class Menu {
                     scanner.nextLine();
                     controller.deletarProduto(id3);
                     System.out.println("Produto deletado com sucesso.");
+                    keyPress();
                     break;
                 case 4:
                     System.out.println("Listar Produtos\n\n");
                     System.out.println("Lista de Produtos:");
                     controller.listarProdutos();
+                    keyPress();
                     break;
                 case 5:
                     System.out.println("Adicionar ao Carrinho\n\n");
@@ -80,6 +91,7 @@ public class Menu {
                     scanner.nextLine();
                     controller.adicionarAoCarrinho(id5);
                     System.out.println("Produto adicionado ao carrinho.");
+                    keyPress();
                     break;
                 case 6:
                     System.out.println("Remover do Carrinho\n\n");
@@ -88,26 +100,38 @@ public class Menu {
                     scanner.nextLine();
                     controller.removerDoCarrinho(id6);
                     System.out.println("Produto removido do carrinho.");
+                    keyPress();
                     break;
                 case 7:
                     System.out.println("Listar Carrinho\n\n");
                     System.out.println("Itens no Carrinho:");
                     controller.listarCarrinho();
+                    keyPress();
                     break;
                 case 8:
                     System.out.println("Calcular Total do Carrinho\n\n");
                     double total = controller.calcularTotalCarrinho();
                     System.out.println("Total do Carrinho: R$ " + total);
+                    keyPress();
                     break;
                 case 9:
                     System.out.println("Finalizar compra\n\n");
                     System.out.println("Finalizando a compra:");
                     controller.finalizarCompra();
+                    keyPress();
                     break;
                 default:
                     System.out.println("\nOpção Inválida!\n");
                     break;
             }
+        }
+    }
+    public static void keyPress() {
+        try {
+            System.out.println(Cores.TEXT_RESET + "\nPressione Enter para continuar");
+            System.in.read();
+        } catch (IOException e) {
+            System.out.println("Você pressionou uma tecla diferente de Enter");
         }
     }
 }
