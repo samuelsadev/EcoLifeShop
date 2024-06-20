@@ -2,12 +2,12 @@ package model;
 
 public abstract class EcoProduto {
     private int id;
-    private String nomeProduto;
+    private String nome;
     private double preco;
 
-    public EcoProduto(int id, String nomeProduto, double preco) {
+    public EcoProduto(int id, String nome, double preco) {
         this.id = id;
-        this.nomeProduto = nomeProduto;
+        this.nome = nome;
         this.preco = preco;
     }
 
@@ -15,16 +15,12 @@ public abstract class EcoProduto {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getNome() {
+        return nome;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
-    }
-
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public double getPreco() {
@@ -37,6 +33,10 @@ public abstract class EcoProduto {
 
     @Override
     public String toString() {
-        return "Produto {ID =" + id + ", Nome = " + nomeProduto + "', Preço = " + preco + "}";
+        return "EcoProduto{ ID = " + id + ", Nome = " + nome + "', Preço = " + preco + "}";
+    }
+
+    public String getDescricao() {
+        return "EcoProduto Genérico: " + nome + ", Preço: R$" + preco;
     }
 }

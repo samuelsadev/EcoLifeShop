@@ -18,6 +18,6 @@ public class ProdutoEspecial extends EcoProduto {
 
     @Override
     public String toString() {
-        return "Produto Especial {ID = " + getId() + ", Nome = " + getNomeProduto() + "', Preço = " + getPreco() + ", Descrição = " + descricaoEspecial + "'}";
+        return "Produto Especial {ID = " + getId() + ", Nome = " + getNome() + "', Preço = " + getPreco() + ", Descrição = " + descricaoEspecial + "'}";
     }
 }
